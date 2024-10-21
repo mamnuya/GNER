@@ -150,7 +150,7 @@ You should install the dependencies:
 # CUDA 11.7 and above
 # PyTorch 2.0 and above.
 # transformers>=4.32.0,<4.38.0
-pip install torch datasets deepspeed accelerate transformers protobuf
+python -m pip install -r requirements.txt
 ```
 
 ### Quick Reproduction
