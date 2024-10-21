@@ -140,7 +140,7 @@ def lcs_solve_fast(a, b):
     return match_idx
 ```
 
-## How to use GNER
+## How to use GNER (updated as of November 2024)
 
 ### Requirements
 
@@ -153,7 +153,7 @@ You should install the dependencies:
 python -m pip install -r requirements.txt
 ```
 
-### Quick Reproduction (updated as of November 2024)
+### Quick Reproduction 
 
 We also provide all the generated results for quick reproduction of our results. The `model_predictions` folder contains the generated results of GNER-LLaMA-7B and GNER-T5-xxl (including the ground truth). You can execute the following commands to evaluate the generated results:
 
