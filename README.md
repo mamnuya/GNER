@@ -159,9 +159,9 @@ We also provide all the generated results for quick reproduction of our results.
 
 ```python
 # 0shot performance of GNER-LLaMA
-python evaluate.py --tokenizer-path yahma/llama-7b-hf --prediction-path prediction_results/llama-7b-task-adaptation-beam1.jsonl
+python evaluate.py --tokenizer-path yahma/llama-7b-hf --prediction-path model_predictions/llama-7b-task-adaptation-beam1.jsonl
 # 0shot performance of GNER-T5-xxl
-python evaluate.py --tokenizer-path google/flan-t5-xxl --prediction-path prediction_results/flan-t5-xxl-task-adaptation-beam1.jsonl
+python evaluate.py --tokenizer-path google/flan-t5-xxl --prediction-path model_predictions/flan-t5-xxl-task-adaptation-beam1.jsonl
 ```
 
 Other generated results can be found at [here](https://drive.google.com/drive/folders/1kg7YDRk8jK4_Bo19jJpZtdAQMBoucppW?usp=drive_link), and the execution process is similar to the two examples mentioned above.
