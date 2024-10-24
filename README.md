@@ -166,6 +166,27 @@ python evaluate.py --tokenizer-path google/flan-t5-xxl --prediction-path model_p
 
 Other generated results can be found at [here](https://drive.google.com/drive/folders/1kg7YDRk8jK4_Bo19jJpZtdAQMBoucppW?usp=drive_link), and the execution process is similar to the two examples mentioned above.
 
+### Reproduce and Test Paper Results in Table 9 
+To verify the results in Table 9 using unit tests, you can executve the following command:
+```python
+# Table 9 Reproduction
+
+
+```
+
+### Reproduce and Test Paper Results in Table 9 
+To optionally observe the outputs of the following tests, view table1case1output.txt and figure6output.txt
+```python
+#Figure 6 Test
+python figure6.py
+
+#Table10 Case 1 Test
+python table10case1.py
+```
+
+
+
+
 ### Training & Inference
 
 First, you should download the training data from [here](https://drive.google.com/drive/folders/1jJsqDhR8Pdg4Qlh5pHm0WZ6Nsk1wEcv9?usp=drive_link), put it in the current directory and rename it as `data`

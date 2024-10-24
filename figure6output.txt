@@ -1,0 +1,86 @@
+warnings.warn(
+FFFF
+======================================================================
+FAIL: test_final_prediction (__main__.TestSelfCorrectionWithBeamSearch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "GNER/figure6.py", line 124, in test_final_prediction
+    self.assertEqual(predicted_labels, expected_final_prediction,
+AssertionError: Lists differ: ['the(B-title)', 'fog(I-title)'] != ['What(O)', 'was(O)', 'the(B-title)', 'fog(I-title)', 'rated(O)', '?(O)']
+
+First differing element 0:
+'the(B-title)'
+'What(O)'
+
+Second list contains 4 additional elements.
+First extra element 2:
+'the(B-title)'
+
+- ['the(B-title)', 'fog(I-title)']
++ ['What(O)', 'was(O)', 'the(B-title)', 'fog(I-title)', 'rated(O)', '?(O)'] : Final prediction after self-correction is incorrect.
+
+======================================================================
+FAIL: test_ground_truth_comparison (__main__.TestSelfCorrectionWithBeamSearch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "GNER/figure6.py", line 131, in test_ground_truth_comparison
+    self.assertEqual(predicted_labels, self.ground_truth,
+AssertionError: Lists differ: ['the(B-title)', 'fog(I-title)'] != ['What(O)', 'was(O)', 'the(B-title)', 'fog(I-title)', 'rated(O)', '?(O)']
+
+First differing element 0:
+'the(B-title)'
+'What(O)'
+
+Second list contains 4 additional elements.
+First extra element 2:
+'the(B-title)'
+
+- ['the(B-title)', 'fog(I-title)']
++ ['What(O)', 'was(O)', 'the(B-title)', 'fog(I-title)', 'rated(O)', '?(O)'] : Final prediction does not match the ground truth.
+
+======================================================================
+FAIL: test_highest_beam_score (__main__.TestSelfCorrectionWithBeamSearch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "GNER/figure6.py", line 106, in test_highest_beam_score
+    self.assertEqual(predicted_labels[:4], expected_highest_beam,
+AssertionError: Lists differ: ['the(B-title)', 'fog(I-title)'] != ['What(O)', 'was(O)', 'the(B-title)', 'fog(I-title)']
+
+First differing element 0:
+'the(B-title)'
+'What(O)'
+
+Second list contains 2 additional elements.
+First extra element 2:
+'the(B-title)'
+
+- ['the(B-title)', 'fog(I-title)']
++ ['What(O)', 'was(O)', 'the(B-title)', 'fog(I-title)']
+?  +++++++++++++++++++++
+ : Highest beam score prediction is incorrect.
+
+======================================================================
+FAIL: test_second_highest_beam_score (__main__.TestSelfCorrectionWithBeamSearch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "GNER/figure6.py", line 114, in test_second_highest_beam_score
+    self.assertEqual(predicted_labels[:4], expected_second_highest_beam,
+AssertionError: Lists differ: ['the(B-title)', 'fog(I-title)'] != ['What(O)', 'was(O)', 'the(B-title)', 'fog(I-title)']
+
+First differing element 0:
+'the(B-title)'
+'What(O)'
+
+Second list contains 2 additional elements.
+First extra element 2:
+'the(B-title)'
+
+- ['the(B-title)', 'fog(I-title)']
++ ['What(O)', 'was(O)', 'the(B-title)', 'fog(I-title)']
+?  +++++++++++++++++++++
+ : Second-highest beam score prediction is incorrect.
+
+----------------------------------------------------------------------
+Ran 4 tests in 56.622s
+
+FAILED (failures=4)

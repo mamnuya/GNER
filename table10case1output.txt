@@ -1,0 +1,43 @@
+FF
+======================================================================
+FAIL: test_generation_with_beam_search (__main__.TestGNERTextGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "GNER/table10case1.py", line 89, in test_generation_with_beam_search
+    self.assertEqual(predicted_labels, expected_labels,
+AssertionError: Lists differ: ['who(O)', 'is(O)', 'direct(O)', 'ing(O)', 'the(B-title)'] != ['who(O)', 'is(O)', 'directing(O)', 'the(B-title)', 'hobbit(I-title)']
+
+First differing element 2:
+'direct(O)'
+'directing(O)'
+
+- ['who(O)', 'is(O)', 'direct(O)', 'ing(O)', 'the(B-title)']
+?                            -------
+
++ ['who(O)', 'is(O)', 'directing(O)', 'the(B-title)', 'hobbit(I-title)']
+?                                                   +++++++++++++++++++
+ : Prediction with beam search is incorrect.
+
+======================================================================
+FAIL: test_generation_without_beam_search (__main__.TestGNERTextGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mrinki/GNER/table10case1.py", line 81, in test_generation_without_beam_search
+    self.assertEqual(predicted_labels, expected_labels,
+AssertionError: Lists differ: ['who(O)', 'is(O)', 'direct(O)', 'ing(O)', 'the(B-title)'] != ['who(O)', 'is(O)', 'directing(O)', 'the(O)', 'hobbit(B-title)']
+
+First differing element 2:
+'direct(O)'
+'directing(O)'
+
+- ['who(O)', 'is(O)', 'direct(O)', 'ing(O)', 'the(B-title)']
+?                            -------
+
++ ['who(O)', 'is(O)', 'directing(O)', 'the(O)', 'hobbit(B-title)']
+?                                         +++++++++++++
+ : Prediction without beam search is incorrect.
+
+----------------------------------------------------------------------
+Ran 2 tests in 6.482s
+
+FAILED (failures=2)

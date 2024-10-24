@@ -5,3 +5,6 @@ deepspeed==0.15.2
 accelerate==0.23.0
 transformers==4.34.0
 protobuf==4.24.4
+nltk==3.9.1
+torchvision==0.16.0
+bitsandbytes==0.44.1
