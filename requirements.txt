@@ -8,3 +8,4 @@ protobuf==4.24.4
 nltk==3.9.1
 torchvision==0.16.0
 bitsandbytes==0.44.1
+spacy==3.8.2

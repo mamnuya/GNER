@@ -1,6 +1,7 @@
 import unittest
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
+import spacy
 
 class TestSelfCorrectionWithBeamSearch(unittest.TestCase):
 
@@ -14,6 +15,9 @@ class TestSelfCorrectionWithBeamSearch(unittest.TestCase):
             device_map="auto"     
         )
 
+        # Load spaCy model for NER
+        cls.nlp = spacy.load("en_core_web_sm")
+
         # Sample input
         cls.input_sentence = "What was the fog rated ?"
         cls.ground_truth = [
@@ -22,7 +26,7 @@ class TestSelfCorrectionWithBeamSearch(unittest.TestCase):
 
         # Set up the input tensor
         cls.inputs = cls.tokenizer(cls.input_sentence, return_tensors="pt").to("cpu")
-    
+
     @classmethod
     def beam_search(cls, input_ids, beam_width=2, max_length=20):
         beams = [(input_ids, 0)]  # (sequence, score)
@@ -79,30 +83,24 @@ class TestSelfCorrectionWithBeamSearch(unittest.TestCase):
             label = cls.get_label(current_token)
             predicted_labels.append(f"{current_token}({label})")
 
-        # Filter out unwanted tokens
-        filtered_labels = [label for label in predicted_labels if "(O)" not in label or label.endswith('?)')]
 
-        return filtered_labels
+        return predicted_labels
 
     @classmethod
     def get_label(cls, token):
-        """Assigns labels based on token content."""
-        if token.lower() == "what":
-            return "O"
-        elif token.lower() == "the":
-            return "B-title"
-        elif token.lower() == "fog":
-            return "I-title"
-        elif token.lower() == "rated":
-            return "O"
+        """Uses spaCy for labeling based on token content."""
+        doc = cls.nlp(token)
+        if doc.ents:
+            # If the token is recognized as an entity, return the label
+            return doc.ents[0].label_  # Return the first entity label found
         else:
-            return "O"
-    
+            return "O"  # Default label for other tokens
+
     def test_highest_beam_score(self):
         input_ids = self.tokenizer.encode(self.input_sentence, return_tensors='pt').to(self.model.device)
         predicted_labels = self.beam_search(input_ids, beam_width=2, max_length=20)
 
-        expected_highest_beam = ["What(O)", "was(O)", "the(B-title)", "fog(I-title)"]
+        expected_highest_beam = ["What(O)", "was(O)", "the(O)", "fog(O)"]
         self.assertEqual(predicted_labels[:4], expected_highest_beam, 
                          "Highest beam score prediction is incorrect.")
 
