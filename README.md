@@ -169,8 +169,7 @@ Other generated results can be found at [here](https://drive.google.com/drive/fo
 ### Reproduce and Test Paper Results in Table 9 
 To verify the results in Table 9 using unit tests, you can executve the following command:
 ```python
-# Table 9 Reproduction
-python test_gner_table9.py
+# Table 9 Testing
 
 python -m unittest test_GNER_table9.TestGNERModelPredictions.test_omission_case_1_llama
 python -m unittest test_GNER_table9.TestGNERModelPredictions.test_omission_case_2_llama
@@ -179,6 +178,16 @@ python -m unittest test_GNER_table9.TestGNERModelPredictions.test_addition_case_
 
 python -m unittest test_GNER_table9.TestGNERModelPredictions.test_substitution_case_4_llama
 python -m unittest test_GNER_table9.TestGNERModelPredictions.test_substitution_case_5_llama
+
+python -m unittest test_GNER_table9.TestGNERModelPredictions.test_omission_case_6_t5
+python -m unittest test_GNER_table9.TestGNERModelPredictions.test_omission_case_7_t5
+
+python -m unittest test_GNER_table9.TestGNERModelPredictions.test_addition_case_8_t5
+python -m unittest test_GNER_table9.TestGNERModelPredictions.test_addition_case_9_t5
+
+python -m unittest test_GNER_table9.TestGNERModelPredictions.test_substitution_case_10_t5
+
+
 
 
 ```
