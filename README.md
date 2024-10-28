@@ -202,6 +202,25 @@ python figure6.py
 python table10case1.py
 ```
 
+### Perform robustness testing 
+To optionally observe the outputs of the following tests, view ?
+```python
+python test_robust1.py
+
+#Test in Spanish
+python -m unittest test_robust1.py TestGNERModel.test_bio_output_spanish
+
+#Test with Special Characters
+python -m unittest test_robust1.py TestGNERModel.test_bio_output_specialChars
+
+#Test with Bengali characters
+python -m unittest test_robust1.py TestGNERModel.test_bio_output_bengali
+
+#Test in English
+python -m unittest test_robust1.py TestGNERModel.test_bio_output_english
+
+```
+
 
 
 

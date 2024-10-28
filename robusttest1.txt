@@ -1,0 +1,73 @@
+FFFF
+======================================================================
+FAIL: test_bio_output_bengali (__main__.TestGNERModel)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/scratch/mrinki/GNER/test_robust1.py", line 126, in test_bio_output_bengali
+    self.assertEqual(bio_predictions, expected_bio_format, "BIO-format output does not match expected format for Bengali input.")
+AssertionError: Lists differ: ['B-character', 'I-character', 'O', 'B-year', 'O', 'O', 'O', 'O', 'O', 'O'] != ['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+
+First differing element 0:
+'B-character'
+'O'
+
+First list contains 1 additional elements.
+First extra element 9:
+'O'
+
+- ['B-character', 'I-character', 'O', 'B-year', 'O', 'O', 'O', 'O', 'O', 'O']
++ ['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'] : BIO-format output does not match expected format for Bengali input.
+
+======================================================================
+FAIL: test_bio_output_english (__main__.TestGNERModel)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/scratch/mrinki/GNER/test_robust1.py", line 57, in test_bio_output_english
+    self.assertEqual(bio_predictions, expected_bio_format, "BIO-format output does not match expected format for English input.")
+AssertionError: Lists differ: ['O', 'B-actor', 'I-actor', 'O', 'O', 'B-genre', 'O', 'O', 'B-year', 'O'] != ['O', 'B-actor', 'I-actor', 'O', 'O', 'B-genre', 'O', 'O', 'B-year']
+
+First list contains 1 additional elements.
+First extra element 9:
+'O'
+
+- ['O', 'B-actor', 'I-actor', 'O', 'O', 'B-genre', 'O', 'O', 'B-year', 'O']
+?                                                                    -----
+
++ ['O', 'B-actor', 'I-actor', 'O', 'O', 'B-genre', 'O', 'O', 'B-year'] : BIO-format output does not match expected format for English input.
+
+======================================================================
+FAIL: test_bio_output_spanish (__main__.TestGNERModel)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/scratch/mrinki/GNER/test_robust1.py", line 80, in test_bio_output_spanish
+    self.assertEqual(bio_predictions, expected_bio_format, "BIO-format output does not match expected format for Spanish input.")
+AssertionError: Lists differ: ['B-actor', 'I-actor', 'O', 'O', 'B-genre', 'O', 'O', 'O', 'B-year', 'O'] != ['B-actor', 'I-actor', 'O', 'O', 'B-genre', 'O', 'O', 'O', 'B-year']
+
+First list contains 1 additional elements.
+First extra element 9:
+'O'
+
+- ['B-actor', 'I-actor', 'O', 'O', 'B-genre', 'O', 'O', 'O', 'B-year', 'O']
+?                                                                    -----
+
++ ['B-actor', 'I-actor', 'O', 'O', 'B-genre', 'O', 'O', 'O', 'B-year'] : BIO-format output does not match expected format for Spanish input.
+
+======================================================================
+FAIL: test_bio_output_specialChars (__main__.TestGNERModel)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/scratch/mrinki/GNER/test_robust1.py", line 103, in test_bio_output_specialChars
+    self.assertEqual(bio_predictions, expected_bio_format, "BIO-format output does not match expected format for Special Char input.")
+AssertionError: Lists differ: ['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'] != ['O', 'O', 'O', 'O', 'O']
+
+First list contains 8 additional elements.
+First extra element 5:
+'O'
+
+- ['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
++ ['O', 'O', 'O', 'O', 'O'] : BIO-format output does not match expected format for Special Char input.
+
+----------------------------------------------------------------------
+Ran 4 tests in 4088.952s
+
+FAILED (failures=4)
