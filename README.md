@@ -153,7 +153,7 @@ You should install the dependencies:
 python -m pip install -r requirements.txt
 ```
 
-### Quick Reproduction 
+### Quick Reproduction (provided by original authors)
 
 We also provide all the generated results for quick reproduction of our results. The `model_predictions` folder contains the generated results of GNER-LLaMA-7B and GNER-T5-xxl (including the ground truth). You can execute the following commands to evaluate the generated results:
 
@@ -170,7 +170,9 @@ Other generated results can be found at [here](https://drive.google.com/drive/fo
 To verify the results in Table 9 using unit tests, you can executve the following command:
 ```python
 # Table 9 Testing
+python test_GNER_table9.py
 
+# Run single tests
 python -m unittest test_GNER_table9.TestGNERModelPredictions.test_omission_case_1_llama
 python -m unittest test_GNER_table9.TestGNERModelPredictions.test_omission_case_2_llama
 
@@ -192,7 +194,7 @@ python -m unittest test_GNER_table9.TestGNERModelPredictions.test_substitution_c
 
 ```
 
-### Reproduce and Test Paper Results 
+### Reproduce and Test Paper Results in Figure 6
 To optionally observe the outputs of the following tests, view table1case1output.txt and figure6output.txt
 ```python
 #Figure 6 Test
@@ -203,26 +205,18 @@ python table10case1.py
 ```
 
 ### Perform robustness testing 
-To optionally observe the outputs of the following tests, view ?
+To optionally observe the outputs of the following tests, view robusttest1.txt
 ```python
 python test_robust1.py
-
-#Test in Spanish
-python -m unittest test_robust1.py TestGNERModel.test_bio_output_spanish
-
-#Test with Special Characters
-python -m unittest test_robust1.py TestGNERModel.test_bio_output_specialChars
-
-#Test with Bengali characters
-python -m unittest test_robust1.py TestGNERModel.test_bio_output_bengali
-
-#Test in English
-python -m unittest test_robust1.py TestGNERModel.test_bio_output_english
-
 ```
 
+### Run provided evaluation script on an empty existing .json file
 
+This produces a ZeroDivisionError.
 
+```python
+python evaluate.py --tokenizer-path yahma/llama-7b-hf --prediction-path model_predictions/test_gner_evaluation_empty.jsonl
+```
 
 ### Training & Inference
 
