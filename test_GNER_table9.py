@@ -3,23 +3,23 @@ import nltk
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
 
-# Load Tokenizers and Models for CPU
+# Load Tokenizers and Models 
 tokenizer_llama = AutoTokenizer.from_pretrained("dyyyyyyyy/GNER-LLaMA-7B")
 model_llama = AutoModelForCausalLM.from_pretrained("dyyyyyyyy/GNER-LLaMA-7B").to("cpu")
 
 tokenizer_t5 = AutoTokenizer.from_pretrained("dyyyyyyyy/GNER-T5-xxl")
 model_t5 = AutoModelForSeq2SeqLM.from_pretrained("dyyyyyyyy/GNER-T5-xxl").to("cpu")
 
-# Function to run prediction and get response for GNER-LLaMA (on CPU)
+# Function to run prediction and get response for GNER-LLaMA 
 def get_llama_response(sentence):
-    inputs = tokenizer_llama(sentence, return_tensors="pt").to("cpu")  # Changed to CPU
+    inputs = tokenizer_llama(sentence, return_tensors="pt").to("cpu")  # changed to CPU
     outputs = model_llama.generate(**inputs, max_new_tokens=640)
     response = tokenizer_llama.decode(outputs[0], skip_special_tokens=True)
     return response.strip()
 
-# Function to run prediction and get response for GNER-T5 (on CPU)
+# Function to run prediction and get response for GNER-T5 
 def get_t5_response(sentence):
-    inputs = tokenizer_t5(sentence, return_tensors="pt").to("cpu")  # Changed to CPU
+    inputs = tokenizer_t5(sentence, return_tensors="pt").to("cpu")  # changed to CPU
     outputs = model_t5.generate(**inputs, max_new_tokens=640)
     response = tokenizer_t5.decode(outputs[0], skip_special_tokens=True).strip()
     return response

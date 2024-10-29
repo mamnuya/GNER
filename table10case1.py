@@ -23,7 +23,7 @@ class TestGNERTextGeneration(unittest.TestCase):
             "who(O)", "is(O)", "directing(O)", "the(B-title)", "hobbit(I-title)"
         ]
 
-        # Set up the input tensor
+        # input tensor
         cls.inputs = cls.tokenizer(cls.input_sentence, return_tensors="pt").to("cpu")
 
     @classmethod
@@ -67,7 +67,7 @@ class TestGNERTextGeneration(unittest.TestCase):
 
             predicted_labels.append(f"{token}({label})")
 
-        # Truncate to expected output length for testing
+        # truncate to expected output length for testing
         if len(predicted_labels) > len(cls.ground_truth_no_beam_search):
             predicted_labels = predicted_labels[:len(cls.ground_truth_no_beam_search)]
 

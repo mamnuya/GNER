@@ -15,7 +15,7 @@ class TestSelfCorrectionWithBeamSearch(unittest.TestCase):
             device_map="auto"     
         )
 
-        # Load spaCy model for NER
+        # spaCy model for NER
         cls.nlp = spacy.load("en_core_web_sm")
 
         # Sample input
@@ -24,7 +24,7 @@ class TestSelfCorrectionWithBeamSearch(unittest.TestCase):
             "What(O)", "was(O)", "the(B-title)", "fog(I-title)", "rated(O)", "?(O)"
         ]
 
-        # Set up the input tensor
+        # input tensor
         cls.inputs = cls.tokenizer(cls.input_sentence, return_tensors="pt").to("cpu")
 
     @classmethod
@@ -48,7 +48,7 @@ class TestSelfCorrectionWithBeamSearch(unittest.TestCase):
                     new_beams.append((new_seq, new_score))
 
             new_beams.sort(key=lambda x: x[1], reverse=True)
-            beams = new_beams[:beam_width]  # Keep top beam_width beams
+            beams = new_beams[:beam_width]  # keep top beam_width beams
 
         best_sequence = beams[0][0]
         generated_ids = best_sequence[0].tolist()
@@ -69,16 +69,16 @@ class TestSelfCorrectionWithBeamSearch(unittest.TestCase):
             if token in ['<s>', '</s>', '<pad>', '<|endoftext|>', '', ' ']:
                 continue
             
-            # Concatenate tokens if it's a sub-token
+            # join tokens if a sub-token
             if token.startswith('##'):
-                current_token += token[2:]  # Remove '##' and concatenate
+                current_token += token[2:]  # remove '##' and concatenate
             else:
-                if current_token:  # Add the previously accumulated token
+                if current_token:  # add previously accumulated token
                     label = cls.get_label(current_token)
                     predicted_labels.append(f"{current_token}({label})")
-                current_token = token  # Start a new token
+                current_token = token  # new token
 
-        # Assign label for the last token if it exists
+        # label last token if it exists
         if current_token:
             label = cls.get_label(current_token)
             predicted_labels.append(f"{current_token}({label})")
@@ -91,10 +91,9 @@ class TestSelfCorrectionWithBeamSearch(unittest.TestCase):
         """Uses spaCy for labeling based on token content."""
         doc = cls.nlp(token)
         if doc.ents:
-            # If the token is recognized as an entity, return the label
-            return doc.ents[0].label_  # Return the first entity label found
+            return doc.ents[0].label_  # return the first entity label found
         else:
-            return "O"  # Default label for other tokens
+            return "O"  # default label for other tokens
 
     def test_highest_beam_score(self):
         input_ids = self.tokenizer.encode(self.input_sentence, return_tensors='pt').to(self.model.device)
