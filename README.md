@@ -218,6 +218,12 @@ This produces a ZeroDivisionError.
 python evaluate.py --tokenizer-path yahma/llama-7b-hf --prediction-path model_predictions/test_gner_evaluation_empty.jsonl
 ```
 
+### Run provided evaluation script on existing .json file with limited data and word edits
+```python
+python evaluate.py --tokenizer-path yahma/llama-7b-hf --prediction-path model_predictions/test_gner_evaluation.jsonl
+```
+
+
 ### Training & Inference
 
 First, you should download the training data from [here](https://drive.google.com/drive/folders/1jJsqDhR8Pdg4Qlh5pHm0WZ6Nsk1wEcv9?usp=drive_link), put it in the current directory and rename it as `data`
