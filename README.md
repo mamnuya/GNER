@@ -1,4 +1,4 @@
-<p align="center"><h2 align="center">Rethinking Negative Instances for Generative Named Entity Recognition</h2></p>
+<p align="center"><h2 align="center">Reproduction: Rethinking Negative Instances for Generative Named Entity Recognition</h2></p>
 
 <p align="center">
     <a href="https://github.com/yyDing1/GNER/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/yyDing1/GNER"></a>
@@ -153,7 +153,7 @@ You should install the dependencies:
 python -m pip install -r requirements.txt
 ```
 
-### Quick Reproduction (provided by original authors)
+### Quick Reproduction 
 
 We also provide all the generated results for quick reproduction of our results. The `model_predictions` folder contains the generated results of GNER-LLaMA-7B and GNER-T5-xxl (including the ground truth). You can execute the following commands to evaluate the generated results:
 
@@ -194,7 +194,7 @@ python -m unittest test_GNER_table9.TestGNERModelPredictions.test_substitution_c
 
 ```
 
-### Reproduce and Test Paper Results in Figure 6
+### Reproduce and Test Paper Results in Figure 6 and Table 10
 To optionally observe the outputs of the following tests, view table1case1output.txt and figure6output.txt
 ```python
 #Figure 6 Test
@@ -204,7 +204,7 @@ python figure6.py
 python table10case1.py
 ```
 
-### Perform robustness testing 
+### Perform Robustness Testing 
 To optionally observe the outputs of the following tests, view robusttest1.txt
 ```python
 python test_robust1.py
