@@ -1,0 +1,10 @@
+Input: Who is directing the Hobbit?
+Expected Tokens: ['who', 'is', 'directing', 'the', 'ho', '##bb', '##it', '?']
+Tokenized Output: ['who', 'is', 'directing', 'the', 'ho', '##bb', '##it', '?']
+Match: True
+
+Input: Analyzing multi-token words like re-directing
+Expected Tokens: ['analyzing', 'multi', '-', 'token', 'words', 'like', 're', '-', 'directing']
+Tokenized Output: ['analyzing', 'multi', '-', 'token', 'words', 'like', 're', '-', 'directing']
+Match: True
+

@@ -1,0 +1,5 @@
+Input: Did George Clooney make a musical in the 1980s?
+Expected Labels: ['O', 'B-PERSON', 'I-PERSON', 'O', 'O', 'O', 'O', 'B-DATE', 'I-DATE', 'O']
+Actual Labels: ['O', 'B-PERSON', 'I-PERSON', 'O', 'O', 'O', 'O', 'B-DATE', 'I-DATE', 'O']
+Match: True
+
