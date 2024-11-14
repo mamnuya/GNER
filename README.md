@@ -243,19 +243,8 @@ bash scripts/train_t5_xxl_task_adaptation.sh
 bash scripts/eval_t5_task_adaptation.sh
 ```
 
-## Error Analysis
-   We performed a detailed error analysis on the GNER models to understand where they may struggle with entity recognition. The following tests and results help highlight the model’s limitations and areas for improvement.
-   
-#Project Structure
-contextual_entity_recognition_test.py: Evaluates the model’s ability to recognize entities based on contextual information.
-
-labeling_test.py: Assesses the model’s performance in labeling multi-token entities such as names, dates, and places.
-
-resource_constraint_test.py: Tests the model's resource efficiency by monitoring memory usage during execution.
-
-synonym_entity_test.py: Verifies if the model can recognize synonymous entities or abbreviations accurately.
-
-tokenization_test.py: Ensures the model tokenizes complex words, including hyphenated terms, correctly.
+# Error Analysis
+   We performed a detailed error analysis on the GNER models to understand where they may struggle with entity recognition. The following tests and results help highlight the model’s limitations and areas for improvements
 
 Prerequisites
 Python 3.x
@@ -264,7 +253,7 @@ Install all dependencies using:
 pip install -r requirements.txt
 ```
 
-# 1. Contextual Entity Recognition Test
+## 1. Contextual Entity Recognition Test
 
 This test evaluates the model's ability to recognize entities based on the context in which they appear. It checks whether the model can accurately identify and label entities in sentences with varying structures and complexities.
 
@@ -293,7 +282,7 @@ Observation: The model generally recognized entities correctly in straightforwar
 
 Error Found: In cases with multiple interpretations, the model occasionally applied incorrect labels, showing a limitation in contextual understanding.
 
-# 2. Synonym Entity Test
+## 2. Synonym Entity Test
 
 This test assesses the model's ability to recognize entities expressed through synonyms or abbreviations. It evaluates whether the model can generalize entity recognition beyond exact matches to include equivalent terms.
 
@@ -314,7 +303,7 @@ Objective: To evaluate the model’s ability to recognize entities when synonyms
 Observation: The model performed inconsistently with synonyms and abbreviations. For example, it recognized "NYC" as a location but failed with more unusual or varied synonyms for common terms.
 Error Found: The model often failed to generalize across equivalent terms, indicating a need for improved synonym and abbreviation handling during training.
 
-# 3. Tokenization Test
+## 3. Tokenization Test
 
 This test verifies the model's tokenization accuracy, focusing on complex words like hyphenated terms and multi-token phrases. Proper tokenization is essential for accurate entity recognition.
 
@@ -337,7 +326,7 @@ Error Found: Incorrect tokenization on complex words led to misalignment in enti
 
 
 
-# 4. Resource Constraint Test
+## 4. Resource Constraint Test
 
 This test monitors the model's memory usage during inference to evaluate its efficiency and suitability for deployment in resource-constrained environments.
 
@@ -357,7 +346,7 @@ Objective: To monitor the model's memory usage during inference, ensuring it can
 Observation: Memory usage remained consistent across test cases, but larger sentences led to minor spikes.
 Error Found: No critical errors were found, though resource use was high, suggesting potential optimization needs for deployment on devices with restricted memory.
 
-# 5. Labeling Test
+## 5. Labeling Test
 
 This test verifies the model’s ability to accurately label entities in a sentence, comparing the actual labels assigned by the model with the expected labels. It assesses the model’s consistency and accuracy in identifying and labeling entities in diverse sentence structures.
 
