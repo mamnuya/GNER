@@ -60,6 +60,8 @@ GNER-LLaMA:
 GNER-T5:
 
 ```python
+
+
 >>> import torch
 >>> from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 >>> tokenizer = AutoTokenizer.from_pretrained("dyyyyyyyy/GNER-T5-xxl")
@@ -90,7 +92,46 @@ Furthermore, we implement a fast version of the LCS algorithm within $O(N\log N)
 
 First, we transform the Longest Common Subsequence (LCS) problem into a Longest Increasing Subsequence (LIS) problem. Subsequently, we construct a Directed Acyclic Graph (DAG) to facilitate the traceback of the specific sequence.
 
-```python
+```python## Error Analysis Scripts
+
+The following scripts were used for error analysis to evaluate various aspects of the model's performance:
+
+### Scripts Overview
+
+- **`tokenization_test.py`**: This script tests the tokenization process of the model. It checks whether the tokenized output matches the expected tokens for different input sentences.
+  
+- **`labeling_test.py`**: This script tests the labeling functionality of the model. It ensures that the model labels entities correctly according to predefined labels.
+
+- **`resource_constraint_test.py`**: This script evaluates the performance of the model under resource constraints, particularly memory usage, to ensure that the model works efficiently even with limited resources.
+  
+- **`robustness_test.py`**: This script performs robustness testing by testing the model with different types of noisy inputs and non-English text, ensuring that the model's performance is not adversely affected by such variations.
+
+### Running the Scripts
+
+To run the error analysis scripts, use the following commands:
+
+1. **Tokenization Test**:
+   ```bash
+   python error_analysis/tokenization_test.py
+   ```
+
+2. **Labeling Test**:
+   ```bash
+   python error_analysis/labeling_test.py
+   ```
+
+3. **Resource Constraint Test**:
+   ```bash
+   python error_analysis/resource_constraint_test.py
+   ```
+
+4. **Robustness Test**:
+   ```bash
+   python error_analysis/robustness_test.py
+   ```
+
+These scripts will output the results of each test and indicate whether the model's performance matches the expected behavior.
+
 # A fast version of LCS with a complexity of O(NlogN)
 # in the condiction that there are few depulicate words in the sentence
 # input: a = [word_1, word_2, ..., word_n], b = [word_1, word_2, ..., word_m]
