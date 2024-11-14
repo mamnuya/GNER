@@ -111,14 +111,14 @@ The following scripts were used for error analysis to evaluate various aspects o
 To run the error analysis scripts, use the following commands:
 
 
+## Error Analysis Scripts
 
+### 1. **Tokenization Test**:
+   This script tests the tokenization process of the model. It checks whether the tokenized output matches the expected tokens for different input sentences.
 
-
-
-1. **Tokenization Test**:
    ```bash
    python error_analysis/tokenization_test.py
-   ```
+
 
 2. **Labeling Test**:
    ```bash
