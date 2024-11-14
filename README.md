@@ -92,51 +92,6 @@ Furthermore, we implement a fast version of the LCS algorithm within $O(N\log N)
 
 First, we transform the Longest Common Subsequence (LCS) problem into a Longest Increasing Subsequence (LIS) problem. Subsequently, we construct a Directed Acyclic Graph (DAG) to facilitate the traceback of the specific sequence.
 
-```python## Error Analysis Scripts
-
-The following scripts were used for error analysis to evaluate various aspects of the model's performance:
-
-### Scripts Overview
-
-- **`tokenization_test.py`**: This script tests the tokenization process of the model. It checks whether the tokenized output matches the expected tokens for different input sentences.
-  
-- **`labeling_test.py`**: This script tests the labeling functionality of the model. It ensures that the model labels entities correctly according to predefined labels.
-
-- **`resource_constraint_test.py`**: This script evaluates the performance of the model under resource constraints, particularly memory usage, to ensure that the model works efficiently even with limited resources.
-  
-- **`robustness_test.py`**: This script performs robustness testing by testing the model with different types of noisy inputs and non-English text, ensuring that the model's performance is not adversely affected by such variations.
-
-### Running the Scripts
-
-To run the error analysis scripts, use the following commands:
-
-
-## Error Analysis Scripts
-
-### 1. **Tokenization Test**:
-   This script tests the tokenization process of the model. It checks whether the tokenized output matches the expected tokens for different input sentences.
-
-   ```bash
-   python error_analysis/tokenization_test.py
-
-
-2. **Labeling Test**:
-   ```bash
-   python error_analysis/labeling_test.py
-   ```
-
-3. **Resource Constraint Test**:
-   ```bash
-   python error_analysis/resource_constraint_test.py
-   ```
-
-4. **Robustness Test**:
-   ```bash
-   python error_analysis/robustness_test.py
-   ```
-
-These scripts will output the results of each test and indicate whether the model's performance matches the expected behavior.
-
 # A fast version of LCS with a complexity of O(NlogN)
 # in the condiction that there are few depulicate words in the sentence
 # input: a = [word_1, word_2, ..., word_n], b = [word_1, word_2, ..., word_m]
@@ -287,6 +242,158 @@ bash scripts/train_t5_xxl_task_adaptation.sh
 # Evaluate only
 bash scripts/eval_t5_task_adaptation.sh
 ```
+
+##Error Analysis
+   We performed a detailed error analysis on the GNER models to understand where they may struggle with entity recognition. The following tests and results help highlight the model’s limitations and areas for improvement.
+   
+#Project Structure
+contextual_entity_recognition_test.py: Evaluates the model’s ability to recognize entities based on contextual information.
+
+labeling_test.py: Assesses the model’s performance in labeling multi-token entities such as names, dates, and places.
+
+resource_constraint_test.py: Tests the model's resource efficiency by monitoring memory usage during execution.
+
+synonym_entity_test.py: Verifies if the model can recognize synonymous entities or abbreviations accurately.
+
+tokenization_test.py: Ensures the model tokenizes complex words, including hyphenated terms, correctly.
+
+Prerequisites
+Python 3.x
+Install all dependencies using:
+```bash
+pip install -r requirements.txt
+```
+
+1. Contextual Entity Recognition Test
+Purpose
+This test evaluates the model's ability to recognize entities based on the context in which they appear. It checks whether the model can accurately identify and label entities in sentences with varying structures and complexities.
+
+Implementation Details
+Script: contextual_entity_recognition_test.py
+Model Used: bert-large-cased-finetuned-conll03-english from Hugging Face Transformers.
+
+Process:
+Tokenize input sentences.
+Run the model to predict entity labels.
+Compare the predicted labels with expected labels.
+Determine if the predictions match expectations
+
+How to Run
+Execute the following command in your terminal:
+
+```bash
+python contextual_entity_recognition_test.py
+```
+Tests Conducted
+Contextual Entity Recognition Test
+
+Objective: To check if the model accurately identifies entities in sentences where the context is essential.
+
+Observation: The model generally recognized entities correctly in straightforward contexts. However, it struggled with ambiguous cases, often mislabeling or failing to recognize entities in complex sentence structures.
+
+Error Found: In cases with multiple interpretations, the model occasionally applied incorrect labels, showing a limitation in contextual understanding.
+
+2. Synonym Entity Test
+Purpose
+This test assesses the model's ability to recognize entities expressed through synonyms or abbreviations. It evaluates whether the model can generalize entity recognition beyond exact matches to include equivalent terms.
+
+Implementation Details
+
+Script: synonym_entity_test.py
+Model Used: bert-large-cased-finetuned-conll03-english
+Process:
+Provide sentences with entities represented by synonyms or abbreviations.
+Predict entity labels using the model.
+Compare predictions with expected labels.
+How to Run
+Execute the following command:
+```bash
+python synonym_entity_test.py
+```
+Objective: To evaluate the model’s ability to recognize entities when synonyms or abbreviations are used instead of exact terms.
+Observation: The model performed inconsistently with synonyms and abbreviations. For example, it recognized "NYC" as a location but failed with more unusual or varied synonyms for common terms.
+Error Found: The model often failed to generalize across equivalent terms, indicating a need for improved synonym and abbreviation handling during training.
+
+3. Tokenization Test
+Purpose
+This test verifies the model's tokenization accuracy, focusing on complex words like hyphenated terms and multi-token phrases. Proper tokenization is essential for accurate entity recognition.
+
+Implementation Details
+Script: tokenization_test.py
+Tokenizer Used: bert-base-uncased tokenizer.
+Process:
+Define test cases with expected tokens.
+Tokenize input phrases using the tokenizer.
+Compare the tokenizer's output with expected tokens.
+Determine if tokenization matches expectations.
+How to Run
+Run the following command:
+```bash
+python tokenization_test.py
+```
+Objective: To assess how well the tokenizer processes complex words, like hyphenated terms or multi-token phrases, which can affect the entity recognition accuracy.
+Observation: For most simple terms, tokenization was accurate. However, in cases of hyphenated words and multi-part terms, tokenization was sometimes incorrect, leading to mismatches with expected outputs.
+Error Found: Incorrect tokenization on complex words led to misalignment in entity tagging, which could propagate errors in the recognition process.
+
+
+
+4. Resource Constraint Test
+Purpose
+This test monitors the model's memory usage during inference to evaluate its efficiency and suitability for deployment in resource-constrained environments.
+
+Implementation Details
+Script: resource_constraint_test.py
+Process:
+Load a BERT model for sequence classification.
+Perform multiple inferences while recording memory usage.
+Output memory usage data to a log file for analysis.
+How to Run
+Execute the script with:
+```bash
+python resource_constraint_test.py
+```
+
+Objective: To monitor the model's memory usage during inference, ensuring it can run efficiently in memory-limited environments.
+Observation: Memory usage remained consistent across test cases, but larger sentences led to minor spikes.
+Error Found: No critical errors were found, though resource use was high, suggesting potential optimization needs for deployment on devices with restricted memory.
+
+5. Labeling Test
+Purpose
+This test verifies the model’s ability to accurately label entities in a sentence, comparing the actual labels assigned by the model with the expected labels. It assesses the model’s consistency and accuracy in identifying and labeling entities in diverse sentence structures.
+
+Implementation Details
+
+Script: labeling_test.py
+Process:
+Load a BERT model fine-tuned for token classification.
+Run several test sentences through the model, comparing its output labels with predefined, expected labels.
+Output each test sentence with its expected vs. actual labels and note if they match or not.
+How to Run
+Execute the script with:
+```bash
+python labeling_test.py
+```
+
+Objective: To assess the model's ability to accurately assign entity labels in sentences, ensuring consistency in labeling diverse entities such as names, dates, and locations.
+
+Observation: The model accurately labeled entities in most cases, correctly identifying entities like B-PERSON, B-DATE, and B-LOC. However, minor inconsistencies were observed with more complex sentence structures, which impacted accuracy slightly.
+
+Error Found: No critical errors were found in basic entity labeling, though minor misclassifications occurred in complex sentence structures, indicating a need for fine-tuning on more varied datasets to improve labeling accuracy in edge cases.
+
+
+Conclusion
+
+Tokenization: The model performed well with simpler token structures but showed minor inconsistencies with multi-token words and phrases. This suggests that while tokenization accuracy is generally high, special cases may benefit from refinement or tokenization adjustments.
+
+Synonym Entity Detection: Synonym detection worked accurately in identifying common synonyms but faced challenges with less common synonyms or more abstract expressions. This highlights an area where the model could benefit from expanded synonym mapping or additional training data.
+
+Contextual Entity Recognition: The model successfully identified entities within their contextual usage, though certain entity types were misclassified when presented in less straightforward contexts. This indicates the model's strong base performance but suggests further training could improve performance in nuanced contexts.
+
+Resource Constraints: The memory usage test revealed consistent but high memory consumption, particularly for longer sentences, indicating that while the model is stable in resource usage, optimizations would be beneficial for deployment in memory-constrained environments.
+
+Labeling: Entity labeling was generally accurate, with successful tagging of person names, dates, and locations. However, complex sentence structures resulted in minor errors, suggesting the need for improved handling of intricate or nested entities.
+
+Overall Findings: The error analysis demonstrates that the model is reliable in straightforward scenarios but has limitations in handling complex inputs, synonyms, and memory efficiency. The results highlight areas for further enhancement, including synonym handling, memory optimization, and contextual accuracy in entity recognition. These findings suggest that, with targeted refinements, the model's performance and deployability in diverse scenarios could be significantly improved.
 
 ## Citation
 
