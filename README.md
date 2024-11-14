@@ -91,7 +91,7 @@ We develop a Hierarchical Matching algorithm that provides a straightforward and
 Furthermore, we implement a fast version of the LCS algorithm within $O(N\log N)$, based on the nature of the small number of duplicate words in the query sentence.
 
 First, we transform the Longest Common Subsequence (LCS) problem into a Longest Increasing Subsequence (LIS) problem. Subsequently, we construct a Directed Acyclic Graph (DAG) to facilitate the traceback of the specific sequence.
-
+```bash
 # A fast version of LCS with a complexity of O(NlogN)
 # in the condiction that there are few depulicate words in the sentence
 # input: a = [word_1, word_2, ..., word_n], b = [word_1, word_2, ..., word_m]
