@@ -265,7 +265,7 @@ pip install -r requirements.txt
 ```
 
 # 1. Contextual Entity Recognition Test
-Purpose
+
 This test evaluates the model's ability to recognize entities based on the context in which they appear. It checks whether the model can accurately identify and label entities in sentences with varying structures and complexities.
 
 Implementation Details
@@ -294,7 +294,7 @@ Observation: The model generally recognized entities correctly in straightforwar
 Error Found: In cases with multiple interpretations, the model occasionally applied incorrect labels, showing a limitation in contextual understanding.
 
 # 2. Synonym Entity Test
-Purpose
+
 This test assesses the model's ability to recognize entities expressed through synonyms or abbreviations. It evaluates whether the model can generalize entity recognition beyond exact matches to include equivalent terms.
 
 Implementation Details
@@ -315,7 +315,7 @@ Observation: The model performed inconsistently with synonyms and abbreviations.
 Error Found: The model often failed to generalize across equivalent terms, indicating a need for improved synonym and abbreviation handling during training.
 
 # 3. Tokenization Test
-Purpose
+
 This test verifies the model's tokenization accuracy, focusing on complex words like hyphenated terms and multi-token phrases. Proper tokenization is essential for accurate entity recognition.
 
 Implementation Details
@@ -338,7 +338,7 @@ Error Found: Incorrect tokenization on complex words led to misalignment in enti
 
 
 # 4. Resource Constraint Test
-Purpose
+
 This test monitors the model's memory usage during inference to evaluate its efficiency and suitability for deployment in resource-constrained environments.
 
 Implementation Details
@@ -358,7 +358,7 @@ Observation: Memory usage remained consistent across test cases, but larger sent
 Error Found: No critical errors were found, though resource use was high, suggesting potential optimization needs for deployment on devices with restricted memory.
 
 # 5. Labeling Test
-Purpose
+
 This test verifies the model’s ability to accurately label entities in a sentence, comparing the actual labels assigned by the model with the expected labels. It assesses the model’s consistency and accuracy in identifying and labeling entities in diverse sentence structures.
 
 Implementation Details
