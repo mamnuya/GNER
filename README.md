@@ -260,7 +260,7 @@ This test evaluates the model's ability to recognize entities based on the conte
 
 Implementation Details
 Script: contextual_entity_recognition_test.py
-Model Used: bert-large-cased-finetuned-conll03-english from Hugging Face Transformers.
+Model Used: GNER-LLaMA
 
 Process:
 Tokenize input sentences.
@@ -290,7 +290,8 @@ This test assesses the model's ability to recognize entities expressed through s
 Implementation Details
 
 Script: synonym_entity_test.py
-Model Used: bert-large-cased-finetuned-conll03-english
+Model Used: GNER-LLaMA
+
 Process:
 Provide sentences with entities represented by synonyms or abbreviations.
 Predict entity labels using the model.
@@ -310,7 +311,7 @@ This test verifies the model's tokenization accuracy, focusing on complex words 
 
 Implementation Details
 Script: tokenization_test.py
-Tokenizer Used: bert-base-uncased tokenizer.
+Tokenizer Used: GNER-LLaMA tokenizer
 Process:
 Define test cases with expected tokens.
 Tokenize input phrases using the tokenizer.
@@ -334,7 +335,7 @@ This test monitors the model's memory usage during inference to evaluate its eff
 Implementation Details
 Script: resource_constraint_test.py
 Process:
-Load a BERT model for sequence classification.
+Load a GNER-LLaMA model for sequence classification.
 Perform multiple inferences while recording memory usage.
 Output memory usage data to a log file for analysis.
 How to Run
@@ -355,7 +356,6 @@ Implementation Details
 
 Script: labeling_test.py
 Process:
-Load a BERT model fine-tuned for token classification.
 Run several test sentences through the model, comparing its output labels with predefined, expected labels.
 Output each test sentence with its expected vs. actual labels and note if they match or not.
 How to Run
