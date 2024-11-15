@@ -296,7 +296,7 @@ Process:
 Provide sentences with entities represented by synonyms or abbreviations.
 Predict entity labels using the model.
 Compare predictions with expected labels.
-How to Run
+How to Run 
 Execute the following command:
 ```bash
 python synonym_entity_test.py
@@ -318,7 +318,7 @@ Tokenize input phrases using the tokenizer.
 Compare the tokenizer's output with expected tokens.
 Determine if tokenization matches expectations.
 How to Run
-Run the following command:
+ Execute the following command:
 ```bash
 python tokenization_test.py
 ```
@@ -339,7 +339,7 @@ Load a GNER-LLaMA model for sequence classification.
 Perform multiple inferences while recording memory usage.
 Output memory usage data to a log file for analysis.
 How to Run
-Execute the script with:
+Execute the Command with:
 ```bash
 python resource_constraint_test.py
 ```
@@ -359,7 +359,7 @@ Process:
 Run several test sentences through the model, comparing its output labels with predefined, expected labels.
 Output each test sentence with its expected vs. actual labels and note if they match or not.
 How to Run
-Execute the script with:
+Execute the Command with:
 ```bash
 python labeling_test.py
 ```
