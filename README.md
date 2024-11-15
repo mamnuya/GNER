@@ -401,7 +401,7 @@ Proposed Improvement: Expand the training set to include varied and complex enti
 
 
 ## Future Work
-Based on our findings, we propose the following steps for improving the GNER-LLaMA model:
+Based on our findings, we suggest the following steps for improving the proposed models:
 
 * Enhance Contextual Training: Incorporate real-world examples with varied sentence complexities
 
