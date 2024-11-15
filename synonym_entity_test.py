@@ -1,14 +1,9 @@
-from transformers import AutoTokenizer, AutoModelForTokenClassification
+from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
-import unittest
-import nltk
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
 
 # Load the BERT model and tokenizer
 tokenizer = AutoTokenizer.from_pretrained("dyyyyyyyy/GNER-LLaMA-7B")
 model = AutoModelForCausalLM.from_pretrained("dyyyyyyyy/GNER-LLaMA-7B")
-
 
 # Define sentences and their expected labels for entity recognition
 test_sentences = [
@@ -30,9 +25,9 @@ for sentence in test_sentences:
 
     # Get the predicted label for each token
     predicted_labels = torch.argmax(outputs, dim=2).squeeze().tolist()
-    
-    # Decode the predicted labels
-    predicted_tags = [model.config.id2label[label] for label in predicted_labels]
+
+    # Decode the predicted labels (with fallback for unknown labels)
+    predicted_tags = [model.config.id2label.get(label, "UNKNOWN") for label in predicted_labels]
 
     # Print the tokenized output, expected labels, and model predictions
     print(f"\nSentence: {sentence['text']}")
