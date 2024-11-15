@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer
 
 # Load the tokenizer
-tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+tokenizer = AutoTokenizer.from_pretrained("dyyyyyyyy/GNER-LLaMA-7B")
 
 # Define test cases with complex tokenization challenges
 inputs = [

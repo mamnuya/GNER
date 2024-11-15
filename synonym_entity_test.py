@@ -1,9 +1,13 @@
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 import torch
+import unittest
+import nltk
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
 
 # Load the BERT model and tokenizer
-tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-model = AutoModelForTokenClassification.from_pretrained("dbmdz/bert-large-cased-finetuned-conll03-english")
+tokenizer = AutoTokenizer.from_pretrained("dyyyyyyyy/GNER-LLaMA-7B")
+model = AutoModelForCausalLM.from_pretrained("dyyyyyyyy/GNER-LLaMA-7B")
 
 
 # Define sentences and their expected labels for entity recognition

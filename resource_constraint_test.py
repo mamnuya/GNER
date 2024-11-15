@@ -1,9 +1,13 @@
 from transformers import AutoModelForSequenceClassification
 import psutil
 import time
+import unittest
+import nltk
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
 
 # Load the BERT model for sequence classification
-model = AutoModelForSequenceClassification.from_pretrained("bert-base-uncased")
+model = AutoModelForCausalLM.from_pretrained("dyyyyyyyy/GNER-LLaMA-7B")
 
 print("Starting resource-intensive test...")
 

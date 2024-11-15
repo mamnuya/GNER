@@ -1,10 +1,14 @@
 # contextual_entity_recognition_test.py
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
+import unittest
+import nltk
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForSeq2SeqLM
 
 # Load the model and tokenizer
-tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-model = AutoModelForSequenceClassification.from_pretrained("bert-base-uncased")
+tokenizer = AutoTokenizer.from_pretrained("dyyyyyyyy/GNER-LLaMA-7B")
+model = AutoModelForCausalLM.from_pretrained("dyyyyyyyy/GNER-LLaMA-7B")
 
 # Define context-based test sentences
 sentences = [
