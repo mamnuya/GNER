@@ -373,17 +373,39 @@ Error Found: No critical errors were found in basic entity labeling, though mino
 
 ### Error Analysis Conclusion
 
-Tokenization: The model performed well with simpler token structures but showed minor inconsistencies with multi-token words and phrases. This suggests that while tokenization accuracy is generally high, special cases may benefit from refinement or tokenization adjustments.
+Contextual Entity Recognition:
+The model failed to leverage contextual information, resulting in misclassification or omission of entities in nuanced sentences.
+Proposed Improvement: Fine-tune the model on diverse datasets emphasizing context-driven annotations.
 
-Synonym Entity Detection: Synonym detection worked accurately in identifying common synonyms but faced challenges with less common synonyms or more abstract expressions. This highlights an area where the model could benefit from expanded synonym mapping or additional training data.
+Synonym Handling:
+A lack of generalization across synonyms and abbreviations restricted the model’s ability to recognize entities with varied representations.
+Proposed Improvement: Integrate synonym and abbreviation mapping into the training dataset.
 
-Contextual Entity Recognition: The model successfully identified entities within their contextual usage, though certain entity types were misclassified when presented in less straightforward contexts. This indicates the model's strong base performance but suggests further training could improve performance in nuanced contexts.
+Tokenization Accuracy:
+Tokenizer errors on hyphenated and multi-part terms highlighted a gap in preprocessing, affecting downstream tasks.
+Proposed Improvement: Enhance the tokenizer for complex terms and multi-token phrases.
 
-Resource Constraints: The memory usage test revealed consistent but high memory consumption, particularly for longer sentences, indicating that while the model is stable in resource usage, optimizations would be beneficial for deployment in memory-constrained environments.
+Resource Efficiency:
+High memory usage indicates the need for optimization, particularly for deployment on memory-constrained devices.
+Proposed Improvement: Implement pruning, quantization, or model distillation techniques to reduce resource requirements.
 
-Labeling: Entity labeling was generally accurate, with successful tagging of person names, dates, and locations. However, complex sentence structures resulted in minor errors, suggesting the need for improved handling of intricate or nested entities.
+Labeling Consistency:
+The model displayed robust performance in simple scenarios but faced challenges with complex sentence structures.
+Proposed Improvement: Expand the training set to include varied and complex entity structures.
 
-Overall Findings: The error analysis demonstrates that the model is reliable in straightforward scenarios but has limitations in handling complex inputs, synonyms, and memory efficiency. The results highlight areas for further enhancement, including synonym handling, memory optimization, and contextual accuracy in entity recognition. These findings suggest that, with targeted refinements, the model's performance and deployability in diverse scenarios could be significantly improved.
+
+## Future Work
+Based on our findings, we propose the following steps for improving the GNER-LLaMA model:
+
+Enhance Contextual Training: Incorporate real-world examples with varied sentence complexities.
+
+Expand Synonym Mapping: Include diverse synonyms and abbreviations across languages and domains.
+
+Optimize Tokenization Algorithms: Refine preprocessing steps to better handle edge cases.
+
+Implement Resource Optimization Techniques: Focus on memory and inference time improvements.
+
+Conduct Robust Evaluations: Test the model on larger datasets and across different languages to ensure scalability and accuracy.
 
 ## Citation
 
