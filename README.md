@@ -403,15 +403,15 @@ Proposed Improvement: Expand the training set to include varied and complex enti
 ## Future Work
 Based on our findings, we propose the following steps for improving the GNER-LLaMA model:
 
-Enhance Contextual Training: Incorporate real-world examples with varied sentence complexities.
+* Enhance Contextual Training: Incorporate real-world examples with varied sentence complexities
 
-Expand Synonym Mapping: Include diverse synonyms and abbreviations across languages and domains.
+* Expand Synonym Mapping: Include diverse synonyms and abbreviations across languages and domains
 
-Optimize Tokenization Algorithms: Refine preprocessing steps to better handle edge cases.
+* Optimize Tokenization Algorithms: Refine preprocessing steps to better handle edge cases
 
-Implement Resource Optimization Techniques: Focus on memory and inference time improvements.
+* Implement Resource Optimization Techniques: Focus on memory and inference time improvements
 
-Conduct Robust Evaluations: Test the model on larger datasets and across different languages to ensure scalability and accuracy.
+* Conduct Robust Evaluations: Test the model on larger datasets and across different languages to ensure scalability and accuracy
 
 ## Citation
 
