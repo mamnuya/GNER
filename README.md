@@ -302,7 +302,9 @@ Execute the following command:
 python synonym_entity_test.py
 ```
 Objective: To evaluate the model’s ability to recognize entities when synonyms or abbreviations are used instead of exact terms.
+
 Observation: The model performed inconsistently with synonyms and abbreviations. For example, it recognized "NYC" as a location but failed with more unusual or varied synonyms for common terms.
+
 Error Found: The model often failed to generalize across equivalent terms, indicating a need for improved synonym and abbreviation handling during training.
 
 ### 3. Tokenization Test
@@ -323,7 +325,9 @@ How to Run
 python tokenization_test.py
 ```
 Objective: To assess how well the tokenizer processes complex words, like hyphenated terms or multi-token phrases, which can affect the entity recognition accuracy.
+
 Observation: For most simple terms, tokenization was accurate. However, in cases of hyphenated words and multi-part terms, tokenization was sometimes incorrect, leading to mismatches with expected outputs.
+
 Error Found: Incorrect tokenization on complex words led to misalignment in entity tagging, which could propagate errors in the recognition process.
 
 
@@ -345,7 +349,9 @@ python resource_constraint_test.py
 ```
 
 Objective: To monitor the model's memory usage during inference, ensuring it can run efficiently in memory-limited environments.
+
 Observation: Memory usage remained consistent across test cases, but larger sentences led to minor spikes.
+
 Error Found: No critical errors were found, though resource use was high, suggesting potential optimization needs for deployment on devices with restricted memory.
 
 ### 5. Labeling Test
