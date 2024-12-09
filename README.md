@@ -144,7 +144,7 @@ def lcs_solve_fast(a, b):
 ## Using GNER and Reproduce Findings (updated as of November 2024)
 
 Access the full reproducibility study report: 
-* 📖 Reproducibility Study Report: [Reproducibility_Study_GNER_report.pdf]()
+* 📖 Reproducibility Study Report: [Reproducibility_Study_GNER_report.pdf](https://github.com/mamnuya/GNER/blob/main/Reproducibility_Study_GNER_report.pdf)
 
 ### Requirements
 
