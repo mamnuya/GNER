@@ -1,7 +1,7 @@
 <p align="center"><h2 align="center">Reproduction: Rethinking Negative Instances for Generative Named Entity Recognition</h2></p>
 
 
-Access the full reproducibility study report, corresponding to README section ["Using GNER and Reproduce Findings"](using-gner-and-reproduce-findings): 
+View our contributions and access the full reproducibility study report, corresponding to README section ["Using GNER and Reproduce Findings"](#using-gner-and-reproduce-findings): 
 * 📖 Reproducibility Study Report: [Reproducibility_Study_GNER_report.pdf](https://github.com/mamnuya/GNER/blob/main/Reproducibility_Study_GNER_report.pdf)
 ---
 
