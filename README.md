@@ -1,5 +1,10 @@
 <p align="center"><h2 align="center">Reproduction: Rethinking Negative Instances for Generative Named Entity Recognition</h2></p>
 
+
+Access the full reproducibility study report, corresponding to README section ["Using GNER and Reproduce Findings"](using-gner-and-reproduce-findings): 
+* 📖 Reproducibility Study Report: [Reproducibility_Study_GNER_report.pdf](https://github.com/mamnuya/GNER/blob/main/Reproducibility_Study_GNER_report.pdf)
+---
+
 <p align="center">
     <a href="https://github.com/yyDing1/GNER/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/yyDing1/GNER"></a>
     <a href="https://huggingface.co/collections/dyyyyyyyy/gner-65dda2cb96c6e35c814dea56"><img alt="Pretrained Models" src="https://img.shields.io/badge/🤗 HuggingFace-Pretrained Models-green"></a>
@@ -154,10 +159,8 @@ def lcs_solve_fast(a, b):
 }
 ```
 
-## Using GNER and Reproduce Findings (updated as of November 2024)
-
-Access the full reproducibility study report: 
-* 📖 Reproducibility Study Report: [Reproducibility_Study_GNER_report.pdf](https://github.com/mamnuya/GNER/blob/main/Reproducibility_Study_GNER_report.pdf)
+## Using GNER and Reproduce Findings 
+(Updated as of November 2024)
 
 ### Requirements
 
