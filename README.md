@@ -141,6 +141,19 @@ def lcs_solve_fast(a, b):
     return match_idx
 ```
 
+## Citation
+
+```bibtex
+@misc{ding2024rethinking,
+      title={Rethinking Negative Instances for Generative Named Entity Recognition}, 
+      author={Yuyang Ding and Juntao Li and Pinzheng Wang and Zecheng Tang and Bowen Yan and Min Zhang},
+      year={2024},
+      eprint={2402.16602},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
+
 ## Using GNER and Reproduce Findings (updated as of November 2024)
 
 Access the full reproducibility study report: 
@@ -416,15 +429,4 @@ Based on our findings, we suggest the following steps for improving the proposed
 
 * Conduct Robust Evaluations: Test the model on larger datasets and across different languages to ensure scalability and accuracy
 
-## Citation
 
-```bibtex
-@misc{ding2024rethinking,
-      title={Rethinking Negative Instances for Generative Named Entity Recognition}, 
-      author={Yuyang Ding and Juntao Li and Pinzheng Wang and Zecheng Tang and Bowen Yan and Min Zhang},
-      year={2024},
-      eprint={2402.16602},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-}
-```
